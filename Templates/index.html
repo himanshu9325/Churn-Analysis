@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend for Churn Analysis</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: rgb(65, 65, 65);
+    }
+    h1 {
+        color: #ffffff;
+    }
+    .formn {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #333;
+        border-radius: 8px;
+        color: white;
+    }
+    .formn label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    .formn input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+    .formn input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    .formn input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+</style>
+<body>
+    <div style="text-align: center;">
+        <h1>Churn Analysis Project</h1>
+    </div>
+    <div class="formn">
+        <form action="/predict" method="post">
+            <label for="Gender">Gender :</label>
+            <input type="text" id="gender" name="gender" placeholder ="1 for male 0 for female"required><br><br>
+
+            <label for="age">Age :</label>
+            <input type="text" id="age" name="age" required><br><br>
+
+            <label for="tenure">Tenure :</label>
+            <input type="text" id="tenure" name="tenure" required><br><br>
+            
+            <label for="balance">Balance : <label>
+            <input type="text" id="balance" name="balance" required><br><br>
+
+            <label for="pro_num">total products brought : <label>
+            <input type="text" id="pro_num" name="pro_num" required><br><br>
+
+            <label for="credit">Do you have Credit Card <label>
+            <input type="text" id="credit" name="credit"placeholder="1 if yes else 0" required><br><br>
+
+            <label for="active">Are You an Active Member : <label>
+            <input type="text" id="active" name="active" placeholder="1 if yes else 0   " required><br><br>
+
+            <label for="est_sal">Estimated Salary : <label>
+            <input type="text" id="est_sal" name="est_sal" required><br><br>
+
+            <input type="submit" value="Predict">
+        </form>
+    </div>
+    {% if prediction_text %}
+    <h3> {{prediction_text}}</h3>
+    {% endif %}
+    
+
+</body>
+</html>
