@@ -1,4 +1,4 @@
-name : MLOps CICD Pipeline
+name: MLOps CICD Pipeline
 
 on:
   push:
@@ -9,22 +9,19 @@ jobs:
   build-train-test-deploy:
     runs-on: ubuntu-latest
 
-  steps :
-    - name: Checkout repository
-      uses: actions/checkout@v3
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-      python-version: '3.10'
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
 
-    - name: Install dependencies
-      run:
-        python -m pip install --upgrade.pip
-        pip install -r requirements.txt
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
-    - name: Run churn Analysis
-      run: python churn_analysis.py
-      
-      
-  
+      - name: Run churn Analysis
+        run: python churn_analysis.py
